@@ -58,6 +58,27 @@ To push code to GitHub using SSH:
 
 See [GitHub's official documentation](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) for more details.
 
+## RSVP with Google Sheets Integration
+
+This website uses Google Sheets to store RSVP submissions:
+
+1. **Create a Google Sheet:**
+   - Create a new Google Sheet
+   - Name the columns to match your form fields (Name, Phone, Guests, Companions)
+
+2. **Set up Google Apps Script:**
+   - In your Google Sheet, go to Extensions > Apps Script
+   - Replace the code with the script in `google-sheets-script.gs`
+   - Save the project and deploy as a web app
+   - Set access to "Anyone, even anonymous" 
+   - Copy the deployment URL
+
+3. **Update the form action:**
+   - In `index.html`, find the RSVP form
+   - Update the form submission code with your deployment URL
+
+Your RSVP submissions will now be automatically saved to your Google Sheet.
+
 ## Technologies Used
 
 - HTML5
