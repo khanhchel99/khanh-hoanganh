@@ -1299,6 +1299,27 @@
             // This empty handler enables :active pseudo-classes to work on mobile
         }, false);
 
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Calculate position with offset (70px provides space at the top)
+                    const offsetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - 70;
+                    
+                    // Scroll smoothly to the target
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
         // Background music functionality
         document.addEventListener('DOMContentLoaded', function() {
             const bgMusic = document.getElementById('bgMusic');
