@@ -1013,7 +1013,7 @@
                 
                 <h2 class="modal-title">Hộp mừng cưới</h2>
                 <p class="modal-subtitle">
-                    Vợ chồng xin cảm ơn tất cả tình cảm của mọi người ạ <i class="fas fa-heart heart-icon"></i>
+                    Cảm ơn những tình cảm đong đầy của mọi người<i class="fas fa-heart heart-icon"></i>
                 </p>
                 
                 <div class="qr-options">
@@ -1062,24 +1062,21 @@
                         <input type="text" id="name" name="name" class="form-input" required>
                     </div>
                     <div class="form-group">
-                        <label for="phone" class="form-label">Số điện thoại:</label>
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                            <select id="countryCode" name="countryCode" style="height: 48px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; padding: 0 10px;">
-                                <option value="+84" selected>🇻🇳 +84</option>
-                                <option value="+1">🇺🇸 +1</option>
-                                <option value="+61">🇦🇺 +61</option>
-                                <option value="+81">🇯🇵 +81</option>
-                                <option value="+65">🇸🇬 +65</option>
-                                <!-- Add more as needed -->
-                            </select>
-                            <input id="phone" name="phone" type="tel" class="form-input" style="flex:1;" required placeholder="Số điện thoại">
-                        </div>
+                        <label for="relationship" class="form-label">Bạn là:</label>
+                        <select id="relationship" name="relationship" class="form-select" required>
+                            <option value="" disabled selected>-- Chọn mối quan hệ --</option>
+                            <option value="Họ hàng">Họ hàng</option>
+                            <option value="Bạn của gia đình">Bạn của gia đình</option>
+                            <option value="Bạn của cô dâu, chú rể">Bạn của cô dâu, chú rể</option>
+                            <option value="Đồng nghiệp của bố mẹ">Đồng nghiệp của bố mẹ</option>
+                            <option value="Đồng nghiệp của cô dâu, chú rể">Đồng nghiệp của cô dâu, chú rể</option>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Số lượng người đi cùng (bao gồm cả bạn):</label>
+                        <label class="form-label">Số lượng người đi cùng:</label>
                         <div style="display: flex; align-items: center; gap: 10px;">
                             <button type="button" id="decrement" class="btn" style="padding: 6px 16px; min-width: 36px;">-</button>
-                            <input type="number" id="guests" name="guests" class="form-input" min="1" max="6" value="1" style="width: 60px; text-align: center;" required readonly>
+                            <input type="number" id="guests" name="guests" class="form-input" min="0" max="10" value="0" style="width: 60px; text-align: center;" required readonly>
                             <button type="button" id="increment" class="btn" style="padding: 6px 16px; min-width: 36px;">+</button>
                         </div>
                     </div>
@@ -1103,33 +1100,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.1.1/js/intlTelInput.min.js"></script>
     <script>
-        // Countdown timer
-        function updateCountdown() {
-            const weddingDate = new Date('July 17, 2025 18:00:00').getTime();
-            const now = new Date().getTime();
-            const timeLeft = weddingDate - now;
-            
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-            
-            document.getElementById('days').innerText = days < 10 ? '0' + days : days;
-            document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
-            document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
-            document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
-            
-            if (timeLeft < 0) {
-                clearInterval(countdownTimer);
-                document.getElementById('days').innerText = '00';
-                document.getElementById('hours').innerText = '00';
-                document.getElementById('minutes').innerText = '00';
-                document.getElementById('seconds').innerText = '00';
-            }
-        }
-        
-        const countdownTimer = setInterval(updateCountdown, 1000);
-        updateCountdown();
+        // Countdown timer removed as it's no longer needed
         
         // RSVP Form Submission to Google Sheets
         document.getElementById('rsvpForm').addEventListener('submit', function(e) {
@@ -1138,8 +1109,7 @@
             // Get form data
             const formData = new FormData(this);
             const name = formData.get('name');
-            const phone = formData.get('phone');
-            const countryCode = formData.get('countryCode');
+            const relationship = formData.get('relationship');
             const guests = formData.get('guests');
             const companions = formData.get('companions');
             
@@ -1161,7 +1131,7 @@
                 if(data.result === 'success') {
                     formStatus.innerHTML = '<p style="color: green;">Cảm ơn bạn đã xác nhận tham dự!</p>';
                     this.reset();
-                    document.getElementById('guests').value = 1; // Reset guests to 1
+                    document.getElementById('guests').value = 0; // Reset guests to 1
                 } else {
                     formStatus.innerHTML = '<p style="color: red;">Có lỗi xảy ra. Vui lòng thử lại sau.</p>';
                     console.error('Error:', data.error);
@@ -1177,11 +1147,11 @@
         const guestsInput = document.getElementById('guests');
         document.getElementById('increment').onclick = function() {
             let val = parseInt(guestsInput.value, 10);
-            if (val < 6) guestsInput.value = val + 1;
+            if (val < 10) guestsInput.value = val + 1;
         };
         document.getElementById('decrement').onclick = function() {
             let val = parseInt(guestsInput.value, 10);
-            if (val > 1) guestsInput.value = val - 1;
+            if (val > 0) guestsInput.value = val - 1;
         };
 
         // Animation when scrolling
