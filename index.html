@@ -898,49 +898,64 @@
             <span class="audio-note-text"><i class="fas fa-music"></i> Nhấn vào đây để nghe nhạc nền!</span>
             <span class="audio-note-close" id="audioNoteClose">&times;</span>
         </div>
-        
-        <section class="hero">
+
+        <!-- Add Hero section with Countdown -->
+        <section class="hero" id="hero">
             <div class="hero-content">
-                <h2>We're getting married</h2>
-                <h1 class="names-heading">
-                    <span class="name">Văn Khánh</span>
-                    <span class="ampersand">&</span>
-                    <span class="name">Hoàng Anh</span>
-                </h1>
-                <p class="date">17 - 07 - 2025</p>
+                <h1>Hoàng Anh & Văn Khánh</h1>
+                <h2>We're getting married!</h2>
+                
+                <div class="date">July 17, 2025</div>
                 
                 <div class="countdown">
                     <div class="countdown-item">
-                        <span class="countdown-number" id="days">00</span>
-                        <span class="countdown-label">Days</span>
+                        <div class="countdown-number" id="days">00</div>
+                        <div class="countdown-label">Days</div>
                     </div>
                     <div class="countdown-item">
-                        <span class="countdown-number" id="hours">00</span>
-                        <span class="countdown-label">Hours</span>
+                        <div class="countdown-number" id="hours">00</div>
+                        <div class="countdown-label">Hours</div>
                     </div>
                     <div class="countdown-item">
-                        <span class="countdown-number" id="minutes">00</span>
-                        <span class="countdown-label">Minutes</span>
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div class="countdown-label">Minutes</div>
                     </div>
                     <div class="countdown-item">
-                        <span class="countdown-number" id="seconds">00</span>
-                        <span class="countdown-label">Seconds</span>
+                        <div class="countdown-number" id="seconds">00</div>
+                        <div class="countdown-label">Seconds</div>
                     </div>
-                </div>
-                
-                <div class="hero-buttons">
-                    <a href="#rsvp" class="hero-button">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Xác nhận tham dự</span>
-                    </a>
-                    <a href="#gift" class="hero-button">
-                        <i class="fas fa-gift"></i>
-                        <span>Tặng quà</span>
-                    </a>
                 </div>
             </div>
         </section>
         
+        <section class="section event" id="event">
+          <h2>Sự hiện diện của tất cả các bạn, luôn là niềm vui niềm hạnh phúc của gia đình! ❤️</h2>
+          <div class="event-info">
+              <div class="event-card transition-delay-1">
+                  <h3>Tiệc cưới</h3>
+                  <p><i class="far fa-calendar-alt"></i> 17-07-2025</p>
+                  <p><i class="far fa-clock"></i> 6:00 PM </p>
+                  <p><i class="fas fa-map-marker-alt"></i><strong> Khách sạn Sheraton Hanoi</strong> <br> K5, Nghi Tàm/11 Đ. Xuân Diệu, Quảng An, Tây Hồ</p>
+              </div>
+              
+              <div class="event-card transition-delay-2">
+                  <h3>Bản đồ</h3>
+                  <div class="map-container" style="margin-top: 20px; width: 100%; overflow: hidden; border-radius: 8px;">
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29786.345677893936!2d105.8039120357077!3d21.060948307174723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135aa55c73c75b3%3A0x6621f45772c25656!2sSheraton%20Hanoi%20Hotel!5e0!3m2!1sen!2s!4v1747728997388!5m2!1sen!2s" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  </div>
+              </div>
+          </div>
+        </section>
+
+        <section class="section story" id="story">
+          <h2>Lời Ngỏ</h2>
+          <div class="story-content">
+              <p>Cảm ơn các bạn rất nhiều vì đã luôn yêu thương và dành tình cảm cho gia đình chúng tôi. Chúng tôi biết ai cũng bận rộn với công việc, gia đình và cuộc sống riêng, nên lại càng trân quý tình cảm của các bạn.</p>
+              <p>Hôn lễ chắc chắn sẽ kém vui đi rất nhiều nếu thiếu đi sự hiện diện của bạn. Hy vọng các bạn sẽ dành chút thời gian đến chung vui, chứng kiến và chia sẻ khoảnh khắc ý nghĩa này cùng gia đình.</p>
+              <p>Cảm ơn bạn vì đã trở thành một phần quan trọng trong ngày đặc biệt này! ❤️</p>
+          </div>
+      </section>
+
         <section class="section couple" id="couple">
             <img src="images/hy.png" alt="Hy" class="hy" id="hy">
             <div class="couple-info">
@@ -966,74 +981,9 @@
             </div>
         </section>
         
-        <section class="section story" id="story">
-            <h2>Lời Ngỏ</h2>
-            <div class="story-content">
-                <p>Cảm ơn các bạn rất nhiều vì đã luôn yêu thương và dành tình cảm cho vợ chồng chúng tôi. Chúng tôi biết ai cũng bận rộn với công việc, gia đình và cuộc sống riêng, nên lại càng trân quý tình cảm của các bạn.</p>
-                <p>Đám cưới của chúng tôi chắc chắn sẽ kém vui đi rất nhiều nếu thiếu đi sự hiện diện của bạn. Hy vọng các bạn sẽ dành chút thời gian đến chung vui, chứng kiến và chia sẻ khoảnh khắc ý nghĩa này cùng gia đình.</p>
-                <p>Cảm ơn bạn vì đã trở thành một phần quan trọng trong ngày đặc biệt của chúng tôi! ❤️</p>
-            </div>
-        </section>
         
-        <section class="section event" id="event">
-            <h2>Sự kiện cưới</h2>
-            <div class="event-info">
-                <div class="event-card transition-delay-1">
-                    <h3>Tiệc Cưới</h3>
-                    <p><i class="far fa-calendar-alt"></i> 17-07-2025</p>
-                    <p><i class="far fa-clock"></i> 6:00 PM </p>
-                    <p><i class="fas fa-map-marker-alt"></i><strong> Khách sạn Sheraton Hanoi</strong> <br> K5, Nghi Tàm/11 Đ. Xuân Diệu, Quảng An, Tây Hồ</p>
-                </div>
-                
-                <div class="event-card transition-delay-2">
-                    <h3>Bản đồ</h3>
-                    <div class="map-container" style="margin-top: 20px; width: 100%; overflow: hidden; border-radius: 8px;">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29786.345677893936!2d105.8039120357077!3d21.060948307174723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135aa55c73c75b3%3A0x6621f45772c25656!2sSheraton%20Hanoi%20Hotel!5e0!3m2!1sen!2s!4v1747728997388!5m2!1sen!2s" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
-            </div>
-        </section>
         
-        <section class="section gift" id="gift">
-            <h2>Hộp mừng cưới</h2>
-            <div class="gift-info">
-                <p>Cảm ơn tất cả các tình cảm mà mọi người đã dành cho chúng tôi</p>
-                
-                <div class="gift-box-container">
-                    <div class="gift-box" id="giftBox">
-                        <img src="images/giftbox.png" alt="Gift Box">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="modal" id="qrModal">
-            <div class="modal-content">
-                <span class="close-modal">&times;</span>
-                
-                <h2 class="modal-title">Hộp mừng cưới</h2>
-                <p class="modal-subtitle">
-                    Cảm ơn những tình cảm đong đầy của mọi người<i class="fas fa-heart heart-icon"></i>
-                </p>
-                
-                <div class="qr-options">
-                    <div class="qr-option">
-                        <h4>Mừng cưới đến cô dâu, chú rể</h4>
-                        <div class="qr-container">
-                            <img src="images/qr.png" alt="QR Code" class="qr-code" id="groomQR">
-                        </div>
-                        <div class="bank-details">
-                            <p><strong>Vietcombank</strong></p>
-                            <p>1016097370</p>
-                        </div>
-                        <div class="qr-actions">
-                            <button class="qr-btn">Tải ảnh QR</button>
-                            <button class="qr-btn" id="copyAccountBtn">Copy Số tài khoản</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         
         <section class="section gallery" id="gallery">
             <h2>Photo Gallery</h2>
@@ -1091,6 +1041,47 @@
                 </form>
             </div>
         </section>
+
+        <section class="section gift" id="gift">  
+          <h2>Hộp mừng cưới</h2>
+          <div class="gift-info">
+              <p>Cảm ơn những tình cảm đong đầy của mọi người </p>
+              
+              <div class="gift-box-container">
+                  <div class="gift-box" id="giftBox">
+                      <img src="images/giftbox.png" alt="Gift Box">
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <div class="modal" id="qrModal">
+          <div class="modal-content">
+              <span class="close-modal">&times;</span>
+              
+              <h2 class="modal-title">Hộp mừng cưới</h2>
+              <p class="modal-subtitle">
+                  Xin cảm ơn tất cả tình cảm của mọi người <i class="fas fa-heart heart-icon"></i>
+              </p>
+              
+              <div class="qr-options">
+                  <div class="qr-option">
+                      <h4>Mừng cưới đến cô dâu, chú rể</h4>
+                      <div class="qr-container">
+                          <img src="images/qr.jpg" alt="QR Code" class="qr-code" id="groomQR">
+                      </div>
+                      <div class="bank-details">
+                          <p><strong>MBBank</strong></p>
+                          <p>0402197488888</p>
+                      </div>
+                      <div class="qr-actions">
+                          <button class="qr-btn">Tải ảnh QR</button>
+                          <button class="qr-btn" id="copyAccountBtn">Copy Số tài khoản</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
         
         <footer>
             <p>We can't wait to celebrate with you!</p>
@@ -1100,8 +1091,33 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/18.1.1/js/intlTelInput.min.js"></script>
     <script>
-        // Countdown timer removed as it's no longer needed
+        // Countdown timer
+        function updateCountdown() {
+            const weddingDate = new Date('July 17, 2025 18:00:00').getTime();
+            const now = new Date().getTime();
+            const timeLeft = weddingDate - now;
+            
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+            document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+            document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+            
+            if (timeLeft < 0) {
+                clearInterval(countdownTimer);
+                document.getElementById('days').innerText = '00';
+                document.getElementById('hours').innerText = '00';
+                document.getElementById('minutes').innerText = '00';
+                document.getElementById('seconds').innerText = '00';
+            }
+        }
         
+        const countdownTimer = setInterval(updateCountdown, 1000);
+        updateCountdown();
         // RSVP Form Submission to Google Sheets
         document.getElementById('rsvpForm').addEventListener('submit', function(e) {
             e.preventDefault();
