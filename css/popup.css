@@ -50,7 +50,7 @@
 }
 
 .rsvp-btn {
-    background-color: #d4af7a;
+    background-color: #D4A5A5;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -62,7 +62,7 @@
 }
 
 .rsvp-btn:hover {
-    background-color: #c09c68;
+    background-color: #C99A9C;
 }
 
 /* Ensure popup is not clipped by parent containers */
