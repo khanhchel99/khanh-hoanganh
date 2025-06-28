@@ -464,8 +464,8 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-            width: 90%;
-            max-width: 450px;
+            width: 95%;
+            max-width: 600px;
             text-align: center;
             animation: modalFadeIn 0.5s;
             position: relative;
@@ -514,10 +514,26 @@
             margin-top: 20px;
         }
 
-        @media (min-width: 576px) {
+        @media (min-width: 577px) {
             .qr-options {
                 flex-direction: row;
                 justify-content: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .qr-options {
+                flex-direction: column;
+                justify-content: center;
+            }
+            
+            .qr-option {
+                margin-bottom: 20px;
+            }
+            
+            .qr-container {
+                width: 140px;
+                height: 140px;
             }
         }
 
@@ -542,8 +558,8 @@
             display: inline-block;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            width: 250px;
-            height: 250px;
+            width: 180px;
+            height: 180px;
         }
 
         .qr-code {
@@ -768,9 +784,10 @@
             }
 
             .modal-content {
-                width: 95%;
-                margin: 20% auto;
+                width: 98%;
+                margin: 15% auto;
                 padding: 15px;
+                max-width: 520px;
             }
             
             .modal-title {
@@ -778,8 +795,8 @@
             }
             
             .qr-container {
-                width: 200px;
-                height: 200px;
+                width: 150px;
+                height: 150px;
             }
 
             .hero-button {
@@ -1471,17 +1488,32 @@
               
               <div class="qr-options">
                   <div class="qr-option">
-                      <h4>Mừng cưới đến cô dâu, chú rể</h4>
+                      <h4>Mừng cưới đến cô dâu</h4>
                       <div class="qr-container">
-                          <img src="images/qr.png" alt="QR Code" class="qr-code" id="groomQR">
+                          <img src="images/qr.png" alt="QR Code Cô dâu" class="qr-code" id="brideQR">
                       </div>
                       <div class="bank-details">
                           <p><strong>Techcombank</strong></p>
                           <p>19033285270010</p>
                       </div>
                       <div class="qr-actions">
-                          <button class="qr-btn">Tải ảnh QR</button>
-                          <button class="qr-btn" id="copyAccountBtn">Copy Số tài khoản</button>
+                          <button class="qr-btn" onclick="downloadQR('brideQR', 'qr-co-dau.png')">Tải ảnh QR</button>
+                          <button class="qr-btn" onclick="copyAccount('19033285270010')">Copy Số tài khoản</button>
+                      </div>
+                  </div>
+                  
+                  <div class="qr-option">
+                      <h4>Mừng cưới đến chú rể</h4>
+                      <div class="qr-container">
+                          <img src="images/qr.jpeg" alt="QR Code Chú rể" class="qr-code" id="groomQR">
+                      </div>
+                      <div class="bank-details">
+                          <p><strong>Vietcombank</strong></p>
+                          <p>1016097370</p>
+                      </div>
+                      <div class="qr-actions">
+                          <button class="qr-btn" onclick="downloadQR('groomQR', 'qr-chu-re.png')">Tải ảnh QR</button>
+                          <button class="qr-btn" onclick="copyAccount('1016097370')">Copy Số tài khoản</button>
                       </div>
                   </div>
               </div>
@@ -1684,11 +1716,19 @@
             document.body.removeChild(downloadLink);
         });
         
-        // Copy account number to clipboard
-        document.getElementById('copyAccountBtn').addEventListener('click', function() {
-            // Get the account number from the bank details
-            const accountNumber = document.querySelector('.bank-details p:nth-child(2)').innerText;
-            
+        // Function to download QR code image
+        function downloadQR(elementId, filename) {
+            const qrImage = document.getElementById(elementId);
+            const link = document.createElement('a');
+            link.href = qrImage.src;
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+        
+        // Function to copy account number to clipboard
+        function copyAccount(accountNumber) {
             // Create a temporary textarea element to copy from
             const textarea = document.createElement('textarea');
             textarea.value = accountNumber;
@@ -1703,7 +1743,7 @@
             
             // Show feedback to user
             alert('Số tài khoản đã được copy: ' + accountNumber);
-        });
+        }
 
         // Add tap functionality for mobile
         document.addEventListener('touchstart', function() {
